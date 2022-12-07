@@ -6,7 +6,7 @@ fun main(args: Array<String>) {
         .forEach { println("$it is a short name with less than 5 letters") }
 
 
-    val namesMap = nameslist.groupBy { it }.toList().sortedBy { (key, value) -> key.length }
+    val namesMap = nameslist.groupBy { it }.toList().sortedBy { (key, value) -> key.length }.groupBy { it.second.size }
 
     println(namesMap)
 
@@ -35,4 +35,15 @@ fun main(args: Array<String>) {
     //minBy -> Get the minimum based on condition
     val minimumLengthChar = nameslist.minBy { it.length }.minBy { it }
     println(minimumLengthChar)
+
+    // Try
+    val newNames = arrayListOf("Jalal","Jalal","Ali","Ahmad","Jalal","Ola","Mohad","Micha")
+    println(newNames.last { it.length == 3 })
+
+    println(newNames[0].hashCode())
+    println(newNames[1].hashCode())
+    println(newNames.filter { it.hashCode() ==71337184 })
+    println(newNames[0].dropWhile { char -> char.isUpperCase()})//remove upper case letters from the name
+    println(newNames[0].dropWhile { char -> char.isDefined()})//drop all letters
+
 }
